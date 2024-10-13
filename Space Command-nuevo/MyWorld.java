@@ -13,7 +13,7 @@ public class MyWorld extends World
     int enemy1Counter2 = 0;
     int enemy1Counter3 = 0;// Contador para los Enemy1 generados
     int DeviantLimit = 45;
-    int Enemy4Limit= 6;
+    int Enemy4Limit= 5;
     int Enemy3Limit= 2;
 
     public MyWorld()
@@ -36,10 +36,15 @@ public class MyWorld extends World
 
     public void act()
     {
+        
+        if (Greenfoot.isKeyDown("enter")) {
+            reiniciar();
+        }
+        
         enemyCount++;
 
         
-        if (enemyCount > 100)
+        if (enemyCount > 80)
         {
             //addStars();
             addEnemy1();
@@ -57,6 +62,8 @@ public class MyWorld extends World
                 addDeviant2();
                 addRayo3();
                 addDeviant3();
+                addEnemy4();
+                addEnemy3();
                 enemy1Counter1 = 0; // Reiniciar el contador de Enemy1 para el próximo ciclo
             }
             if (enemy1Counter2 >= Enemy4Limit)
@@ -112,6 +119,11 @@ public class MyWorld extends World
         addObject(new Deviant(), 300, 0); // Posicionar Deviant
     }
     
+    public void Gameover()
+    {
+        addObject(new Gameover(), 300, 0); // Posicionar Deviant
+    }
+    
     public void addStars()
     {
         addObject(new Stars(), Greenfoot.getRandomNumber(380), 0); // Posicionar Deviant
@@ -122,6 +134,11 @@ public class MyWorld extends World
         addObject(new Enemy4(), 300, 0); 
         addObject(new Enemy4(), 100, 0);// Añadir enemigos en la parte superior
     }
+    
+      public void reiniciar() {
+          Greenfoot.setWorld(new MyWorld());  // Reinicia el mundo creando una nueva instancia
+     }
+
     /**
      * Prepare the world for the start of the program.
      * That is: create the initial objects and add them to the world.

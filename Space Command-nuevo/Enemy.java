@@ -48,7 +48,7 @@ public class Enemy extends Actor
             }
         }
     }
-    public void moveInZigZag()
+    public void ZigZag()
     {
         // Moverse hacia abajo
         setLocation(getX() + (direction * 2), getY() + abajo);
@@ -65,4 +65,22 @@ public class Enemy extends Actor
             getWorld().removeObject(this);
         }
     }
+     public void EliminatePlayer()
+    {
+        // Verificamos si este enemigo está tocando al jugador (Liberty)
+        Liberty player = (Liberty) getOneIntersectingObject(Liberty.class);
+        
+        if (player != null)  // Si está tocando al jugador
+        {
+            // Eliminar al jugador
+            getWorld().removeObject(player);
+            Gameover gameOverImage = new Gameover();
+            getWorld().addObject(gameOverImage, getWorld().getWidth() / 2, getWorld().getHeight() / 3);
+            getWorld().showText("You DIED press (PLAY) to Restart", getWorld().getWidth() / 2, getWorld().getHeight() / 2);
+            Greenfoot.stop();
+
+        }
+     
+    }
+
 }

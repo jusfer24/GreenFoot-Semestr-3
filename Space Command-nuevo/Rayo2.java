@@ -37,6 +37,7 @@ public class Rayo2 extends Rayo
                 visibleImage.setTransparency(255);
                 setImage(visibleImage); // Hacer visible el rayo
                 jaque = 1;
+                EliminatePlayer();
             }
         } else {
             moveRayo2(); // Comienza a moverse una vez que es visible

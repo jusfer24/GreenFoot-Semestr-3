@@ -36,10 +36,12 @@ public class Rayo extends Enemy
                 visibleImage.setTransparency(255);
                 setImage(visibleImage); // Hacer visible el rayo
                 jaque = 1;
+                EliminatePlayer();
             }
         } else {
             moveRayo(); // Comienza a moverse una vez que es visible
         }
+        
     }
     public void moveRayo()
     {

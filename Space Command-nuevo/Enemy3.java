@@ -15,6 +15,7 @@ public class Enemy3 extends Enemy
     public void act()
     {
         moveEnemy3();
+        EliminatePlayer();
         removeFromWorld();
     }
 }
