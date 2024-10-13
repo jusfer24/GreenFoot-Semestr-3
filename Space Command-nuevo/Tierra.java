@@ -17,15 +17,16 @@ public class Tierra extends Actor
     public void act()
     {
         movetierra();
-        remover();
+        removeFromWorld();
     }
     public void movetierra()
     {
         setLocation(getX(),getY()+speed);
     }
-    public void remover()
+     public void removeFromWorld()
     {
-        if(getY() >= getWorld().getHeight()){
+        if (getY()==599)
+        {
             getWorld().removeObject(this);
         }
     }

@@ -16,15 +16,16 @@ public class Titulo extends Actor
     public void act()
     {
         movetitulo();
-        removeIfOutOfBounds();
+        removeFromWorld();
     }
     public void movetitulo()
     {
         setLocation(getX(),getY()+speed);
     }
-    public void removeIfOutOfBounds()
+     public void removeFromWorld()
     {
-        if(getY() >= getWorld().getHeight()){
+        if (getY()==599)
+        {
             getWorld().removeObject(this);
         }
     }

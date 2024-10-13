@@ -11,4 +11,6 @@ comment4.params=
 comment4.target=void\ moveDeviant()
 comment5.params=
 comment5.target=void\ moveInZigZag()
-numComments=6
+comment6.params=
+comment6.target=void\ removeFromWorld()
+numComments=7

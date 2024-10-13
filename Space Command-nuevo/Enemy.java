@@ -58,4 +58,11 @@ public class Enemy extends Actor
             direction *= -1;  // Invertir la dirección
         }
     }
+    public void removeFromWorld()
+    {
+        if (getY()==599)
+        {
+            getWorld().removeObject(this);
+        }
+    }
 }
