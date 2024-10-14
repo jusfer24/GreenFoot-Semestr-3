@@ -28,6 +28,7 @@ public class Enemy4 extends Enemy
     public void act()
     {
         ZigZag();
+        
         EliminatePlayer();
         removeFromWorld();
     }

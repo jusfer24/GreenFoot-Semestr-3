@@ -21,9 +21,15 @@ public class Bala extends Actor
     {
         setLocation(getX(),getY()-5);
     }
-    public void removeFromWorld()
+    
+   public void removeFromWorld()
     {
-        if (getY()==0)
+        Actor enemy = getOneIntersectingObject(Enemy.class);
+        if (enemy !=null)
+        {
+            getWorld().removeObject(enemy);
+            getWorld().removeObject(this);
+        } else if (getY()==0)
         {
             getWorld().removeObject(this);
         }
