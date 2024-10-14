@@ -24,14 +24,26 @@ public class Bala extends Actor
     
    public void removeFromWorld()
     {
-        Actor enemy = getOneIntersectingObject(Enemy.class);
-        if (enemy !=null)
-        {
-            getWorld().removeObject(enemy);
-            getWorld().removeObject(this);
-        } else if (getY()==0)
-        {
-            getWorld().removeObject(this);
-        }
+        Actor enemy1 = getOneIntersectingObject(Enemy1.class);
+        Actor enemy2 = getOneIntersectingObject(Enemy2.class);
+        Actor enemy3 = getOneIntersectingObject(Enemy3.class);
+    if (enemy1 != null || enemy2 != null || enemy3 != null) {
+        // Encontrar el contador en el mundo
+        Counter counter = (Counter) getWorld().getObjects(Counter.class).get(0);
+        
+        // Incrementar el score en 10 puntos por cada enemigo
+        counter.addPoints(10);  // Ajusta el número de puntos según sea necesario
+        
+        // Eliminar los enemigos si existen
+        getWorld().removeObject(enemy1);
+        getWorld().removeObject(enemy2);
+        getWorld().removeObject(enemy3);
+        
+        // Eliminar el actor actual
+        getWorld().removeObject(this);
+    } else if (getY() == 0) {
+        // Si el objeto ha llegado al borde de la pantalla
+        getWorld().removeObject(this);
+    }
     }
 }

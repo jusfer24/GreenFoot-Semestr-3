@@ -19,10 +19,6 @@ public class Enemy extends Actor
     private int rango = 50; // Amplitud del zigzag
     private int abajo = 2; 
     //// Temporizador para la espera
-    public void act()
-    {
-        
-    }
     public void moveEnemy()
     {
         setLocation(getX(),getY()+2);
@@ -77,6 +73,9 @@ public class Enemy extends Actor
             Gameover gameOverImage = new Gameover();
             getWorld().addObject(gameOverImage, getWorld().getWidth() / 2, getWorld().getHeight() / 3);
             getWorld().showText("You DIED press (PLAY) to Restart", getWorld().getWidth() / 2, getWorld().getHeight() / 2);
+            Counter counter = (Counter) getWorld().getObjects(Counter.class).get(0); // Obtiene el contador
+            int highscore = counter.getHighScore();  // Crear una nueva instancia del contador si no existe
+            getWorld().showText("High Score: " + highscore, getWorld().getWidth() / 2, getWorld().getHeight() / 2 + 40);  // Ajusta la posición
             Greenfoot.stop();
 
         }

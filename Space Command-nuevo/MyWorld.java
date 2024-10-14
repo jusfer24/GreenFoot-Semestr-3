@@ -12,15 +12,18 @@ public class MyWorld extends World
     int enemy1Counter1 = 0;
     int enemy1Counter2 = 0;
     int enemy1Counter3 = 0;// Contador para los Enemy1 generados
-    int DeviantLimit = 45;
+    int DeviantLimit = 35;
     int Enemy4Limit= 5;
     int Enemy3Limit= 2;
-
+    private Counter counter;
     public MyWorld()
-    {    
+    {   
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(380, 600, 1);
 
+        counter = new Counter();
+        addObject(counter, 80, 30);
+        
         Tierra earth = new Tierra();
         addObject(earth, 320, 550);
 
@@ -57,13 +60,29 @@ public class MyWorld extends World
             if (enemy1Counter1 >= DeviantLimit)
             {
                 addRayo();
+
                 addDeviant();
-                addRayo2();
-                addDeviant2();
-                addRayo3();
-                addDeviant3();
-                addEnemy4();
+                
                 addEnemy3();
+                
+                addEnemy4();
+                
+                addRayo2();
+                
+                addDeviant2();
+                
+                addEnemy3();
+                
+                addEnemy4();
+                
+                addRayo3();
+                
+                addDeviant3();
+                
+                addEnemy3();
+                
+                addEnemy4(); 
+
                 enemy1Counter1 = 0; // Reiniciar el contador de Enemy1 para el próximo ciclo
             }
             if (enemy1Counter2 >= Enemy4Limit)
